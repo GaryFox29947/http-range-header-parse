@@ -1,0 +1,17 @@
+{
+  "name": "http-range-header-parse",
+  "version": "0.1.0",
+  "description": "Parses Range and Content-Range headers into structured interval tuples, supporting single ranges, multipart byte ranges, and suffix ranges.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
