@@ -37,3 +37,10 @@ Content-Range has its own quirks: the total may be unknown (`*`), and the range 
 - `parseContentRange` rejects suffix syntax (`-500`) and open-ended ranges (`500-`) because Content-Range's grammar requires concrete `first-last` values. Only the bare `*` form is accepted as an unknown range.
 - We only accept the `bytes` range unit. Other units are rejected rather than guessed at.
 - `RangeParseError` is a real subclass of `Error`; catch it specifically to distinguish parse failures from other runtime errors.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
